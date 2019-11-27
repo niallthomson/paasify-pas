@@ -1,0 +1,23 @@
+---
+platform: linux
+
+image_resource:
+  type: docker-image
+  source:
+    repository: cfinfrastructure/releng-tools
+
+inputs:
+- name: env-state
+- name: ci
+- name: stemcell
+- name: product
+- name: product-config-repo
+
+run:
+  path: ci/scripts/terraforming/upload-configure-stage/task
+
+params:
+  OM_USERNAME:
+  OM_PASSWORD:
+  PRODUCT_NAME:
+  PRODUCT_CONFIG_TEMPLATE:

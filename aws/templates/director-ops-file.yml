@@ -1,0 +1,24 @@
+- type: replace  
+  path: /networks-configuration/networks/-
+  value:
+    name: pas
+    subnets: ${pas_subnets}
+
+- type: replace  
+  path: /vmextensions-configuration?
+  value:
+    - name: web_lb_security_groups
+      cloud_properties:
+        security_groups:
+        - web_lb_security_group
+        - vms_security_group
+    - name: ssh_lb_security_groups
+      cloud_properties:
+        security_groups:
+        - ssh_lb_security_group
+        - vms_security_group
+    - name: tcp_lb_security_groups
+      cloud_properties:
+        security_groups:
+        - tcp_lb_security_group
+        - vms_security_group

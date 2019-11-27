@@ -1,0 +1,6 @@
+test
+.envrc
+terraform.tfstate
+terraform.tfstate.backup
+.terraform
+main.tf

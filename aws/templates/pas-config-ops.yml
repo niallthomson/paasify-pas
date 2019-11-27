@@ -1,0 +1,55 @@
+- type: replace  
+  path: /product-properties/.properties.system_blobstore?
+  value:
+    value: external
+- type: replace  
+  path: /product-properties/.properties.system_blobstore.external.buildpacks_bucket?
+  value:
+    value: ${buildpacks_bucket}
+- type: replace  
+  path: /product-properties/.properties.system_blobstore.external.droplets_bucket?
+  value:
+    value: ${droplets_bucket}
+- type: replace  
+  path: /product-properties/.properties.system_blobstore.external.resources_bucket?
+  value:
+    value: ${resources_bucket}
+- type: replace  
+  path: /product-properties/.properties.system_blobstore.external.packages_bucket?
+  value:
+    value: ${packages_bucket}
+- type: replace  
+  path: /product-properties/.properties.system_blobstore.external.access_key?
+  value:
+    value: ${access_key}
+- type: replace  
+  path: /product-properties/.properties.system_blobstore.external.secret_key?
+  value:
+    value: 
+      secret: ${secret_key}
+- type: replace  
+  path: /product-properties/.properties.system_blobstore.external.signature_version?
+  value:
+    value: 4
+- type: replace  
+  path: /product-properties/.properties.system_blobstore.external.region?
+  value:
+    value: ${region}
+- type: replace  
+  path: /product-properties/.properties.system_blobstore.external.endpoint?
+  value:
+    value: https://s3.${region}.amazonaws.com
+- type: replace  
+  path: /product-properties/.properties.system_blobstore.external.encryption?
+  value:
+    value: "${bucket_encryption}"
+- type: replace  
+  path: /product-properties/.properties.system_blobstore.external.encryption_kms_key_id?
+  value:
+    value: "${kms_id}"
+- type: replace
+  path: /resource-config/router?/additional_vm_extensions?
+  value: [${web_lb_extensions}]
+- type: replace
+  path: /resource-config/control?/additional_vm_extensions?
+  value: [${ssh_lb_extensions}]
