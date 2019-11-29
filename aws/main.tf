@@ -1,5 +1,7 @@
 provider "aws" {
   region = var.region
+
+  version = "~> 2.40.0"
 }
 
 data "aws_caller_identity" "current" {}
@@ -46,7 +48,7 @@ module "ns_record" {
 }
 
 resource "null_resource" "infra_blocker" {
-  depends_on = [module.infra, module.ns_record]
+  depends_on = [module.infra, module.ns_record, aws_iam_role_policy.opsman_patch]
 }
 
 module "pas_network_config" {
