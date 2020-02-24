@@ -22,7 +22,7 @@ data "template_file" "pas_configuration" {
 }
 
 module "pas" {
-  source = "github.com/nthomson-pivotal/paasify-core//opsmanager-tile"
+  source = "github.com/niallthomson/paasify-core//opsmanager-tile"
 
   slug         = "elastic-runtime"
   tile_version = "2.8.1"

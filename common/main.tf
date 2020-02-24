@@ -1,5 +1,5 @@
 /*module "apply_changes" {
-  source = "github.com/nthomson-pivotal/paasify-core//apply-changes"
+  source = "github.com/niallthomson/paasify-core//apply-changes"
 
   provisioner_host            = var.provisioner_host
   provisioner_ssh_username    = var.provisioner_ssh_username

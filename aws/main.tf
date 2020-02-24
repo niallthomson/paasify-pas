@@ -17,7 +17,7 @@ data "template_file" "director_ops_file" {
 }
 
 module "pave" {
-  source = "github.com/nthomson-pivotal/paasify-core//pave/aws"
+  source = "github.com/niallthomson/paasify-core//pave/aws"
 
   environment_name    = var.env_name
   region              = var.region
@@ -41,7 +41,7 @@ resource "null_resource" "pave_blocker" {
 }
 
 module "pas_network_config" {
-  source = "github.com/nthomson-pivotal/paasify-core//build-network-config/aws"
+  source = "github.com/niallthomson/paasify-core//build-network-config/aws"
 
   vpc_cidr      = module.pave.vpc_cidr
   subnet_ids    = aws_subnet.pas_subnets.*.id
