@@ -10,7 +10,7 @@ Take this example:
 
 ```
 module "pas" {
-  source = "github.com/nthomson-pivotal/paasify-pas//aws"
+  source = "github.com/niallthomson/paasify-pas//aws"
 
   env_name     = "paasify-test"
   dns_suffix   = "aws.paasify.org"
