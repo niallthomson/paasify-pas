@@ -1,10 +1,19 @@
+resource "aws_iam_access_key" "pas" {
+  user = aws_iam_user.pas.name
+}
+
+resource "aws_iam_user" "pas" {
+  force_destroy = true
+  name          = "${var.env_name}-pas"
+}
+
 resource "aws_iam_policy" "ert" {
   name   = "${var.env_name}_ert"
   policy = data.template_file.ert.rendered
 }
 
 resource "aws_iam_user_policy_attachment" "ert" {
-  user       = module.pave.ops_manager_iam_user_name
+  user       = aws_iam_user.pas.name
   policy_arn = aws_iam_policy.ert.arn
 }
 
@@ -52,11 +61,6 @@ resource "aws_iam_role" "pas_bucket_access" {
 }
 EOF
 
-}
-
-resource "aws_iam_instance_profile" "pas_bucket_access" {
-  name = "${var.env_name}_pas_bucket_access"
-  role = aws_iam_role.pas_bucket_access.name
 }
 
 resource "aws_iam_role_policy" "pas_bucket_access" {

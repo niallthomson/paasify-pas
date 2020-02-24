@@ -4,6 +4,8 @@ data "template_file" "pas_ops_file" {
 
   vars = {
     region               = var.region
+    access_key           = aws_iam_access_key.pas.id
+    secret_key           = aws_iam_access_key.pas.secret
     
     droplets_bucket      = aws_s3_bucket.droplets_bucket.bucket
     packages_bucket      = aws_s3_bucket.packages_bucket.bucket
