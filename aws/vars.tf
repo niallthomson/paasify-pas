@@ -29,7 +29,7 @@ variable "ops_manager_instance_type" {
 }
 
 variable "tiles" {
-  type = "list"
+  type = list
   default = []
 }
 

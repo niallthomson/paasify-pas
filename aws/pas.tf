@@ -4,15 +4,13 @@ data "template_file" "pas_ops_file" {
 
   vars = {
     region               = var.region
-    access_key           = aws_iam_access_key.pas_buckets.id
-    secret_key           = aws_iam_access_key.pas_buckets.secret
     
-    droplets_bucket      = module.infra.pas_droplets_bucket
-    packages_bucket      = module.infra.pas_packages_bucket
-    buildpacks_bucket    = module.infra.pas_buildpacks_bucket
-    resources_bucket     = module.infra.pas_resources_bucket
+    droplets_bucket      = aws_s3_bucket.droplets_bucket.bucket
+    packages_bucket      = aws_s3_bucket.packages_bucket.bucket
+    buildpacks_bucket    = aws_s3_bucket.buildpacks_bucket.bucket
+    resources_bucket     = aws_s3_bucket.resources_bucket.bucket
     bucket_encryption    = var.encrypt_pas_buckets
-    kms_id               = var.encrypt_pas_buckets == "1" ? module.infra.blobstore_kms_key_id : ""
+    kms_id               = var.encrypt_pas_buckets == "1" ? aws_kms_key.blobstore_kms_key.id : ""
 
     web_lb_extensions    = "web_lb_security_groups"
     ssh_lb_extensions    = "ssh_lb_security_groups"

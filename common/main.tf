@@ -1,4 +1,4 @@
-module "apply_changes" {
+/*module "apply_changes" {
   source = "github.com/nthomson-pivotal/paasify-core//apply-changes"
 
   provisioner_host            = var.provisioner_host
@@ -6,4 +6,4 @@ module "apply_changes" {
   provisioner_ssh_private_key = var.provisioner_ssh_private_key
 
   blocker       = module.pas.blocker
-}
+}*/

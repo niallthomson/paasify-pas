@@ -39,15 +39,15 @@ variable "compute_instances" {
 }
 
 variable "web_elb_names" {
-  type    = "list"
+  type    = list
 }
 
 variable "ssh_elb_names" {
-  type    = "list"
+  type    = list
 }
 
 variable "pas_ops_file" {
-  type    = "string"
+  type    = string
   default = "---"
 }
 
