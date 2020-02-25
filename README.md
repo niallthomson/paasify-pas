@@ -32,3 +32,17 @@ This will:
 - Perform all PivNet product downloads/uploads on a jumpbox VM for speed
 
 When the Terraform run completes there will be a fully working PAS installation, with endpoint information available from Terraform outputs.
+
+## Reference
+
+Various bits of information.
+
+### Tiles
+
+The following table lists all tiles that can be automatically installed, along with the name that should be put in the `tiles` parameter:
+
+| Tile | Version | Name |
+|------|-----|-----|
+| tbd | tbd | tbd |
+
+The latest stemcell supported by each tile will automatically be uploaded to OpsManager.

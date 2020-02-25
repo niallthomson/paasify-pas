@@ -28,6 +28,10 @@ variable "ops_manager_instance_type" {
   default = "r4.large"
 }
 
+variable "pas_version" {
+  description = "The major version of PAS to install"
+}
+
 variable "tiles" {
   type = list
   default = []

@@ -1,0 +1,9 @@
+product-name: credhub-service-broker
+network-properties:
+  network:
+    name: pas
+  service_network:
+    name: services
+  other_availability_zones: ${az_configuration}
+  singleton_availability_zone:
+    name: ${az}

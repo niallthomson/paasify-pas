@@ -25,7 +25,7 @@ module "pas" {
   source = "github.com/niallthomson/paasify-core//opsmanager-tile"
 
   slug         = "elastic-runtime"
-  tile_version = "2.8.1"
+  tile_version = local.tile_versions["pas"]
   om_product   = "cf"
   glob         = "srt"
   iaas         = var.iaas

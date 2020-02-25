@@ -5,6 +5,12 @@
     subnets: ${pas_subnets}
 
 - type: replace  
+  path: /networks-configuration/networks/-
+  value:
+    name: services
+    subnets: ${services_subnets}
+
+- type: replace  
   path: /vmextensions-configuration?
   value:
     - name: web_lb_security_groups
