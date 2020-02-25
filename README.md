@@ -16,15 +16,17 @@ module "pas" {
   dns_suffix   = "aws.paasify.org"
   pivnet_token = "<pivnet token here>"
 
+  pas_version  = 2.8
+
   region             = "us-west-2"
   availability_zones = ["us-west-2a", "us-west-2b", "us-west-2c"]
 
-  tiles = ["mysql", "rabbit", "scs"]
+  tiles = ["mysql"]
 }
 ```
 
 This will:
-- Install PAS 2.7 Small Footprint
+- Install PAS 2.8 Small Footprint
 - Download, stage and configure the MySQL, RabbitMQ and Spring Cloud Services tiles
 - Wire up DNS so that its accessible at `paasify-test.aws.paasify.org`
 - Provision valid SSL certificates via Lets Encrypt for every common HTTPS endpoint
