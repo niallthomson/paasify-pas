@@ -27,7 +27,5 @@ data "template_file" "director_ops_file" {
     web_lb_security_group = aws_security_group.web_lb.name
     ssh_lb_security_group = aws_security_group.ssh_lb.name
     tcp_lb_security_group = aws_security_group.tcp_lb.name
-
-    blockers              = "${aws_route_table_association.route_pas_subnets.*.ids}${aws_route_table_association.route_services_subnets.*.ids}"
   }
 }

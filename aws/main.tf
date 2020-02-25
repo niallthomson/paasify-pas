@@ -6,24 +6,34 @@ provider "aws" {
 
 data "aws_caller_identity" "current" {}
 
+resource "null_resource" "infra_blocker" {
+  depends_on = [
+    aws_route53_record.wildcard_sys_dns,
+    aws_lb_listener.web_80,
+    aws_lb_listener.web_443,
+    aws_lb_listener.ssh,
+    aws_lb_listener.tcp,
+    aws_route_table_association.route_pas_subnets,
+    aws_route_table_association.route_services_subnets,
+    aws_iam_user_policy_attachment.ert,
+    aws_iam_access_key.pas,
+  ]
+}
+
 module "pave" {
   source = "github.com/niallthomson/paasify-core//pave/aws"
 
-  environment_name    = var.env_name
-  region              = var.region
-
-  availability_zones  = var.availability_zones
-
-  dns_suffix          = var.dns_suffix
-
-  ops_manager_version = "2.8.2"
-  ops_manager_build   = "203"
-
-  pivnet_token        = var.pivnet_token
-
+  environment_name        = var.env_name
+  region                  = var.region
+  availability_zones      = var.availability_zones
+  dns_suffix              = var.dns_suffix
   additional_cert_domains = ["*.sys", "*.apps", "*.login.sys"]
+  ops_manager_version     = module.common.ops_manager_version
+  ops_manager_build       = module.common.ops_manager_build
+  pivnet_token            = var.pivnet_token
+  director_ops_file       = data.template_file.director_ops_file.rendered
 
-  director_ops_file   = data.template_file.director_ops_file.rendered
+  blockers                = [null_resource.infra_blocker.id]
 }
 
 resource "null_resource" "pave_blocker" {
