@@ -2,6 +2,10 @@
 
 Installing Pivotal Application Service for quick setups can be more complicated than it should. The goal of this project is to allow you to complete an install of PAS, with optional tiles, with nothing more than Terraform installed locally. This is being essentially being exposed as 'PAS-as-a-Terraform-module' that is compatible across all supported public clouds. It is designed for short-term, non-production setups, and is not intended to provide a PAS setup that can be upgraded over long periods of time.
 
+| AWS | GCP | Azure | VMware |
+|------|-----|-----|-----|
+| :heavy_check_mark: | :x: | :x: | :x: |
+
 Note: This project requires Terraform 0.12
 
 If you need fire-and-forget mechanism that gives you predictable, disposable PAS environments (including many popular tiles) then this is for you.
@@ -43,8 +47,13 @@ Various bits of information.
 
 The following table lists all tiles that can be automatically installed, along with the name that should be put in the `tiles` parameter:
 
-| Tile | Version | Name |
-|------|-----|-----|
-| tbd | tbd | tbd |
+| Tile | Name| 2.6 | 2.7 | 2.8 |
+|------|-----|-----|-----|-----|
+| MySQL | `mysql` | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| RabbitMQ | `rabbitmq` | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Redis | `redis` | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Spring Cloud Services | `scs` | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Spring Cloud Gateway | `gateway` | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Single Sign-On | `sso` | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 
 The latest stemcell supported by each tile will automatically be uploaded to OpsManager.

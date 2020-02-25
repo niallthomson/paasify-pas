@@ -1,6 +1,16 @@
 locals {
-  tile_versions = var.tile_versions[var.pas_version]
-  apply_blocker = sha256("${module.pas.blocker}${module.mysql.blocker}${module.credhub.blocker}")
+  tile_versions  = var.tile_versions[var.pas_version]
+  apply_blockers = [
+    module.pas.blocker,
+    module.mysql.blocker,
+    module.rabbitmq.blocker,
+    module.redis.blocker,
+    module.scs.blocker,
+    module.gateway.blocker,
+    module.sso.blocker,
+    module.credhub.blocker,
+  ]
+  apply_blocker  = sha256(join("", local.apply_blockers))
 }
 
 module "apply_changes" {

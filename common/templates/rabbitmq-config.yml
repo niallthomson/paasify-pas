@@ -1,0 +1,21 @@
+product-name: p-rabbitmq
+product-properties:
+  .properties.syslog_selector:
+    value: disabled
+  .properties.on_demand_broker_plan_1_cf_service_access:
+    value: enable
+  .properties.on_demand_broker_plan_1_rabbitmq_az_placement:
+    value: [${plan_azs}]
+  .properties.on_demand_broker_plan_1_disk_limit_acknowledgement:
+    value:
+    - acknowledge
+  .properties.on_demand_broker_plan_1_instance_quota:
+    value: '5'
+network-properties:
+  network:
+    name: pas
+  service_network:
+    name: services
+  other_availability_zones: ${az_configuration}
+  singleton_availability_zone:
+    name: ${az}

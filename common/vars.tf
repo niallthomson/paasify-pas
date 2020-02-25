@@ -71,46 +71,6 @@ variable "pas_version" {
   description = "The major version of PAS to install"
 }
 
-variable "ops_manager_versions" {
-  default = {
-    2.6 = {
-      version = "2.6.22"
-      build   = "288"
-    }
-
-    2.7 = {
-      version = "2.7.12"
-      build   = "260"
-    }
-
-    2.8 = {
-      version = "2.8.2"
-      build   = "203"
-    }
-  }
-}
-
-variable "tile_versions" {
-  default = {
-    2.8 = {
-      pas         = "2.8.1"
-      mysql       = "2.7.5"
-      redis       = "2.2.1"
-      rabbit      = "1.18.3"
-      scs         = "3.0.5"
-      metrics     = "1.6.1"
-      healthwatch = "1.8.0"
-      pcc         = "1.8.0"
-      credhub     = "1.3.2"
-      scdf        = "1.6.1"
-      antivirus   = "2.1.6"
-      gateway     = "1.0.0"
-      fim         = "2.0.0"
-      sso         = "1.11.0"
-    }
-  }
-}
-
 variable "tiles" {
   type = list
   default = []
