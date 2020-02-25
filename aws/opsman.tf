@@ -20,9 +20,14 @@ data "template_file" "director_ops_file" {
   template = "${chomp(file("${path.module}/templates/director-ops-file.yml"))}"
 
   vars = {
-    pas_subnets        = module.pas_network_config.subnet_config
-    services_subnets   = module.services_network_config.subnet_config
-    env_name           = var.env_name
-    vms_security_group = module.pave.vms_security_group_name
+    pas_subnets           = module.pas_network_config.subnet_config
+    services_subnets      = module.services_network_config.subnet_config
+    env_name              = var.env_name
+    vms_security_group    = module.pave.vms_security_group_name
+    web_lb_security_group = aws_security_group.web_lb.name
+    ssh_lb_security_group = aws_security_group.ssh_lb.name
+    tcp_lb_security_group = aws_security_group.tcp_lb.name
+
+    blockers              = "${aws_route_table_association.route_pas_subnets.*.ids}${aws_route_table_association.route_services_subnets.*.ids}"
   }
 }
