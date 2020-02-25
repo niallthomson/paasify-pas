@@ -4,7 +4,7 @@ Installing Pivotal Application Service for quick setups can be more complicated 
 
 | AWS | GCP | Azure | VMware |
 |------|-----|-----|-----|
-| :heavy_check_mark: | :x: | :x: | :x: |
+| :white_check_mark: | :x: | :x: | :x: |
 
 Note: This project requires Terraform 0.12
 
@@ -49,11 +49,11 @@ The following table lists all tiles that can be automatically installed, along w
 
 | Tile | Name| 2.6 | 2.7 | 2.8 |
 |------|-----|-----|-----|-----|
-| MySQL | `mysql` | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| RabbitMQ | `rabbitmq` | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Redis | `redis` | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Spring Cloud Services | `scs` | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Spring Cloud Gateway | `gateway` | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Single Sign-On | `sso` | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| MySQL | `mysql` | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| RabbitMQ | `rabbitmq` | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Redis | `redis` | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Spring Cloud Services | `scs` | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Spring Cloud Gateway | `gateway` | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Single Sign-On | `sso` | :white_check_mark: | :white_check_mark: | :white_check_mark: |
 
 The latest stemcell supported by each tile will automatically be uploaded to OpsManager.
