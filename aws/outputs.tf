@@ -10,11 +10,11 @@ output "ops_manager_password" {
   value = module.pave.ops_manager_password
 }
 
-output "api_endpoint" {
+output "cf_api_endpoint" {
   value = module.common.api_endpoint
 }
 
-output "apps_manager_endpoint" {
+output "cf_apps_manager_endpoint" {
   value = module.common.apps_manager_endpoint
 }
 
