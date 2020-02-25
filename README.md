@@ -27,7 +27,7 @@ module "pas" {
 
 This will:
 - Install PAS 2.8 Small Footprint
-- Download, stage and configure the MySQL, RabbitMQ and Spring Cloud Services tiles
+- Download, stage and configure the MySQL tile
 - Wire up DNS so that its accessible at `paasify-test.aws.paasify.org`
 - Provision valid SSL certificates via Lets Encrypt for every common HTTPS endpoint
 - Allow you to cleanly tear down all infrastructure via `terraform destroy`
