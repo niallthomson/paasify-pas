@@ -4,7 +4,7 @@ Installing Pivotal Application Service for quick setups can be more complicated 
 
 | AWS | GCP | Azure | VMware |
 |------|-----|-----|-----|
-| :white_check_mark: | :x: | :x: | :x: |
+| :white_check_mark: | :white_check_mark: | :x: | :x: |
 
 Note: This project requires Terraform 0.12
 

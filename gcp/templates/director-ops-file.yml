@@ -1,0 +1,11 @@
+- type: replace  
+  path: /networks-configuration/networks/-
+  value:
+    name: pas
+    subnets: [${pas_subnets}]
+
+- type: replace  
+  path: /networks-configuration/networks/-
+  value:
+    name: services
+    subnets: [${services_subnets}]
