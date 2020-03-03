@@ -1,5 +1,5 @@
 locals {
-  pas_cidr     = cidrsubnet(module.pave.vpc_cidr, 4, 2)
+  pas_cidr      = cidrsubnet(module.pave.vpc_cidr, 4, 2)
   services_cidr = cidrsubnet(module.pave.vpc_cidr, 4, 3)
 }
 
@@ -27,7 +27,7 @@ resource "aws_subnet" "services_subnets" {
   availability_zone = element(var.availability_zones, count.index)
 
   tags = {
-      "Name" = "${var.env_name}-services-subnet${count.index}"
+    "Name" = "${var.env_name}-services-subnet${count.index}"
   }
 }
 

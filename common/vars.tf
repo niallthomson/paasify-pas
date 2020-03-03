@@ -3,11 +3,11 @@ variable "iaas" {
 }
 
 variable "availability_zones" {
-  type    = list
+  type = list
 }
 
 variable "az_configuration" {
-  
+
 }
 
 variable "singleton_az" {
@@ -23,7 +23,7 @@ variable "tls_private_key" {
 }
 
 variable "tls_ca_cert" {
-    
+
 }
 
 variable "additional_config" {
@@ -43,11 +43,11 @@ variable "compute_instances" {
 }
 
 variable "web_elb_names" {
-  type    = list
+  type = list
 }
 
 variable "ssh_elb_names" {
-  type    = list
+  type = list
 }
 
 variable "pas_ops_file" {
@@ -72,7 +72,7 @@ variable "pas_version" {
 }
 
 variable "tiles" {
-  type = list
+  type    = list
   default = []
 }
 

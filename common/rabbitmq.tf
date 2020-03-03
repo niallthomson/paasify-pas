@@ -20,7 +20,7 @@ module "rabbitmq" {
   provisioner_username    = var.provisioner_ssh_username
   provisioner_private_key = var.provisioner_ssh_private_key
 
-  skip                    = contains(var.tiles, "rabbitmq") ? false : true
+  skip = contains(var.tiles, "rabbitmq") ? false : true
 
-  blocker                 = module.pas.blocker
+  blocker = module.pas.blocker
 }

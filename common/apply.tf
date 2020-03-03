@@ -1,5 +1,5 @@
 locals {
-  tile_versions  = var.tile_versions[var.pas_version]
+  tile_versions = var.tile_versions[var.pas_version]
   apply_blockers = [
     module.pas.blocker,
     module.mysql.blocker,
@@ -10,7 +10,7 @@ locals {
     module.sso.blocker,
     module.credhub.blocker,
   ]
-  apply_blocker  = sha256(join("", local.apply_blockers))
+  apply_blocker = sha256(join("", local.apply_blockers))
 }
 
 module "apply_changes" {
@@ -20,5 +20,5 @@ module "apply_changes" {
   provisioner_ssh_username    = var.provisioner_ssh_username
   provisioner_ssh_private_key = var.provisioner_ssh_private_key
 
-  blocker       = local.apply_blocker
+  blocker = local.apply_blocker
 }

@@ -15,24 +15,24 @@ resource "null_resource" "infra_blocker" {
 module "pave" {
   source = "github.com/niallthomson/paasify-core//pave/gcp"
 
-  environment_name        = var.env_name
-  region                  = var.region
-  availability_zones      = var.availability_zones
-  project                 = var.project
+  environment_name   = var.env_name
+  region             = var.region
+  availability_zones = var.availability_zones
+  project            = var.project
 
-  dns_suffix              = var.dns_suffix
-  hosted_zone             = var.dns_zone_name
+  dns_suffix  = var.dns_suffix
+  hosted_zone = var.dns_zone_name
 
-  ops_manager_version     = module.common.ops_manager_version
-  ops_manager_build       = module.common.ops_manager_build
+  ops_manager_version = module.common.ops_manager_version
+  ops_manager_build   = module.common.ops_manager_build
 
-  pivnet_token            = var.pivnet_token
+  pivnet_token = var.pivnet_token
 
   additional_cert_domains = ["*.sys", "*.apps", "*.login.sys"]
 
-  director_ops_file       = data.template_file.director_ops_file.rendered
+  director_ops_file = data.template_file.director_ops_file.rendered
 
-  blockers                = [null_resource.infra_blocker.id]
+  blockers = [null_resource.infra_blocker.id]
 }
 
 resource "null_resource" "pave_blocker" {
@@ -47,24 +47,24 @@ module "common" {
   iaas               = "google"
   availability_zones = module.pave.availability_zones
 
-  apps_domain      = "${replace(replace(google_dns_record_set.wildcard-apps-dns.name, "/^\\*\\./", ""), "/\\.$/", "")}"
-  sys_domain       = "${replace(replace(google_dns_record_set.wildcard-sys-dns.name, "/^\\*\\./", ""), "/\\.$/", "")}"
+  apps_domain = "${replace(replace(google_dns_record_set.wildcard-apps-dns.name, "/^\\*\\./", ""), "/\\.$/", "")}"
+  sys_domain  = "${replace(replace(google_dns_record_set.wildcard-sys-dns.name, "/^\\*\\./", ""), "/\\.$/", "")}"
 
-  web_elb_names    = ["tcp:${google_compute_target_pool.websocket-lb.name}", "http:${google_compute_backend_service.http-lb.name}"]
-  ssh_elb_names    = ["tcp:${google_compute_target_pool.ssh-lb.name}"]
+  web_elb_names = ["tcp:${google_compute_target_pool.websocket-lb.name}", "http:${google_compute_backend_service.http-lb.name}"]
+  ssh_elb_names = ["tcp:${google_compute_target_pool.ssh-lb.name}"]
 
-  pas_ops_file     = data.template_file.pas_ops_file.rendered
-  
+  pas_ops_file = data.template_file.pas_ops_file.rendered
+
   az_configuration = module.pave.az_configuration
   singleton_az     = var.availability_zones[0]
 
-  tls_cert         = module.pave.cert_full_chain
-  tls_private_key  = module.pave.cert_key
-  tls_ca_cert      = module.pave.cert_ca
+  tls_cert        = module.pave.cert_full_chain
+  tls_private_key = module.pave.cert_key
+  tls_ca_cert     = module.pave.cert_ca
 
   provisioner_host            = module.pave.provisioner_host
   provisioner_ssh_username    = module.pave.provisioner_ssh_username
   provisioner_ssh_private_key = module.pave.provisioner_ssh_private_key
 
-  blocker          = module.pave.blocker
+  blocker = module.pave.blocker
 }

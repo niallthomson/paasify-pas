@@ -33,7 +33,7 @@ module "pave" {
   pivnet_token            = var.pivnet_token
   director_ops_file       = data.template_file.director_ops_file.rendered
 
-  blockers                = [null_resource.infra_blocker.id]
+  blockers = [null_resource.infra_blocker.id]
 }
 
 resource "null_resource" "pave_blocker" {
@@ -48,24 +48,24 @@ module "common" {
   iaas               = "aws"
   availability_zones = module.pave.availability_zones
 
-  apps_domain      = local.app_domain
-  sys_domain       = local.sys_domain
+  apps_domain = local.app_domain
+  sys_domain  = local.sys_domain
 
-  web_elb_names    = formatlist("alb:%s", aws_lb_target_group.web_443.*.name)
-  ssh_elb_names    = formatlist("alb:%s", aws_lb_target_group.ssh.*.name)
+  web_elb_names = formatlist("alb:%s", aws_lb_target_group.web_443.*.name)
+  ssh_elb_names = formatlist("alb:%s", aws_lb_target_group.ssh.*.name)
 
-  pas_ops_file     = data.template_file.pas_ops_file.rendered
-  
+  pas_ops_file = data.template_file.pas_ops_file.rendered
+
   az_configuration = module.pave.az_configuration
   singleton_az     = var.availability_zones[0]
 
-  tls_cert         = module.pave.cert_full_chain
-  tls_private_key  = module.pave.cert_key
-  tls_ca_cert      = module.pave.cert_ca
+  tls_cert        = module.pave.cert_full_chain
+  tls_private_key = module.pave.cert_key
+  tls_ca_cert     = module.pave.cert_ca
 
   provisioner_host            = module.pave.provisioner_host
   provisioner_ssh_username    = module.pave.provisioner_ssh_username
   provisioner_ssh_private_key = module.pave.provisioner_ssh_private_key
 
-  blocker          = module.pave.blocker
+  blocker = module.pave.blocker
 }

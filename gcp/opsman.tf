@@ -24,7 +24,7 @@ data "template_file" "director_ops_file" {
   template = "${chomp(file("${path.module}/templates/director-ops-file.yml"))}"
 
   vars = {
-    pas_subnets           = module.pas_network_config.subnet_config
-    services_subnets      = module.services_network_config.subnet_config
+    pas_subnets      = module.pas_network_config.subnet_config
+    services_subnets = module.services_network_config.subnet_config
   }
 }

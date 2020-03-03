@@ -10,7 +10,7 @@ resource "google_dns_record_set" "wildcard-sys-dns" {
 
   managed_zone = module.pave.dns_zone_name
 
-  rrdatas = [ google_compute_global_address.http-lb.address ]
+  rrdatas = [google_compute_global_address.http-lb.address]
 }
 
 resource "google_dns_record_set" "doppler-sys-dns" {
@@ -20,7 +20,7 @@ resource "google_dns_record_set" "doppler-sys-dns" {
 
   managed_zone = module.pave.dns_zone_name
 
-  rrdatas = [ google_compute_address.websocket-lb.address ]
+  rrdatas = [google_compute_address.websocket-lb.address]
 }
 
 resource "google_dns_record_set" "loggregator-sys-dns" {
@@ -30,7 +30,7 @@ resource "google_dns_record_set" "loggregator-sys-dns" {
 
   managed_zone = module.pave.dns_zone_name
 
-  rrdatas = [ google_compute_address.websocket-lb.address ]
+  rrdatas = [google_compute_address.websocket-lb.address]
 }
 
 resource "google_dns_record_set" "wildcard-apps-dns" {
@@ -40,7 +40,7 @@ resource "google_dns_record_set" "wildcard-apps-dns" {
 
   managed_zone = module.pave.dns_zone_name
 
-  rrdatas = [ google_compute_global_address.http-lb.address ]
+  rrdatas = [google_compute_global_address.http-lb.address]
 }
 
 resource "google_dns_record_set" "wildcard-ws-dns" {
@@ -50,7 +50,7 @@ resource "google_dns_record_set" "wildcard-ws-dns" {
 
   managed_zone = module.pave.dns_zone_name
 
-  rrdatas = [ google_compute_address.websocket-lb.address ]
+  rrdatas = [google_compute_address.websocket-lb.address]
 }
 
 resource "google_dns_record_set" "app-ssh-dns" {
@@ -60,7 +60,7 @@ resource "google_dns_record_set" "app-ssh-dns" {
 
   managed_zone = module.pave.dns_zone_name
 
-  rrdatas = [ google_compute_address.ssh-lb.address ]
+  rrdatas = [google_compute_address.ssh-lb.address]
 }
 
 resource "google_dns_record_set" "tcp-dns" {
@@ -70,5 +70,5 @@ resource "google_dns_record_set" "tcp-dns" {
 
   managed_zone = module.pave.dns_zone_name
 
-  rrdatas = [ google_compute_address.tcp-lb.address ]
+  rrdatas = [google_compute_address.tcp-lb.address]
 }
