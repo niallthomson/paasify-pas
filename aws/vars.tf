@@ -34,7 +34,7 @@ variable "ops_manager_instance_type" {
   type        = string
   default     = "r4.large"
 }
- 
+
 variable "pas_version" {
   description = "The major version of PAS to install (ie. 2.8)"
   type        = string
