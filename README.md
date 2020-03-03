@@ -8,7 +8,7 @@ The goal of this project is to allow you to complete an install of PAS, includin
 
 | AWS | GCP | Azure | VMware |
 |------|-----|-----|-----|
-| :white_check_mark: | :white_check_mark: | :x: | :x: |
+| [Docs](docs/aws.md) | [Docs](docs/gcp.md) | :x: | :x: |
 
 Note: This project requires Terraform 0.12.X
 
@@ -43,7 +43,7 @@ When the Terraform run completes there will be a fully working PAS installation,
 
 ## Reference
 
-Various bits of information.
+Quick reference for various areas of the project.
 
 ### Tiles
 
