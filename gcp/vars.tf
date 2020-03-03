@@ -50,6 +50,6 @@ variable "encrypt_pas_buckets" {
 }
 
 variable "buckets_location" {
-  type    = "string"
+  type    = string
   default = "US"
 }
