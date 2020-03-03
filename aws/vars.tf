@@ -4,7 +4,7 @@ variable "env_name" {
 
 variable "vpc_cidr" {
   description = "The CIDR of the AWS VPC that will be created for this foundation"
-  default     = "10.0.0.0/20"
+  default     = "10.0.0.0/16"
 }
 
 variable "region" {
