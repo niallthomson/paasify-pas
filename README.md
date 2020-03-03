@@ -1,5 +1,7 @@
 # Paasify for Pivotal Application Service
 
+![](https://github.com/niallthomson/paasify-pas/workflows/CI/badge.svg)
+
 Install Pivotal Application Service with nothing more than Terraform. If you need fire-and-forget mechanism that gives you predictable, disposable PAS environments (including many popular tiles) then this is for you.
 
 The goal of this project is to allow you to complete an install of PAS, including optional tiles, with the only requirement being Terraform. This is being essentially being exposed as 'PAS-as-a-Terraform-module' that is compatible across all supported public clouds. It is designed for short-term, non-production setups, and is not intended to provide a PAS setup that can be upgraded over long periods of time.
