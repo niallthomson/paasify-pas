@@ -8,7 +8,7 @@ The goal of this project is to allow you to complete an install of PAS, includin
 
 | AWS | GCP | Azure | VMware |
 |------|-----|-----|-----|
-| [Docs](docs/aws.md) | [Docs](docs/gcp.md) | :x: | :x: |
+| [Docs](docs/modules/aws.md) | [Docs](docs/modules/gcp.md) | :x: | :x: |
 
 Note: This project requires Terraform 0.12.X
 
