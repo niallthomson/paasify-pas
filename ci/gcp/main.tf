@@ -6,8 +6,8 @@ provider "google" {
 module "paasify" {
   source = "../../gcp"
 
-  env              = "test123"
-  project          = "fe-nthomson"
+  env_name           = "test123"
+  project            = "fe-nthomson"
 
   region             = "us-central1"
   availability_zones = ["us-central1-a", "us-central1-b", "us-central1-c"]
