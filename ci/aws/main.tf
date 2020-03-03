@@ -4,10 +4,10 @@ provider "aws" {
   version = "~> 2.50.0"
 }
 
-module "pave" {
+module "paasify" {
   source = "../../aws"
 
-  environment_name = "test123"
+  env_name         = "test123"
   region           = "us-west-2"
 
   availability_zones = ["us-west-2a", "us-west-2b", "us-west-2c"]

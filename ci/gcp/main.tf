@@ -5,10 +5,10 @@ provider "google" {
   version = "~> 3.9.0"
 }
 
-module "pave" {
+module "paasify" {
   source = "../../gcp"
 
-  environment_name = "test123"
+  env              = "test123"
   project          = "fe-nthomson"
 
   region             = "us-central1"
