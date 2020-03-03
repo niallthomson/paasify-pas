@@ -7,7 +7,6 @@ provider "google" {
 
 resource "null_resource" "infra_blocker" {
   depends_on = [
-    google_dns_record_set.wildcard-sys-dns,
     google_compute_firewall.http-lb,
     google_compute_global_forwarding_rule.https-lb-443,
   ]
@@ -48,8 +47,8 @@ module "common" {
   iaas               = "google"
   availability_zones = module.pave.availability_zones
 
-  apps_domain      = local.app_domain
-  sys_domain       = local.sys_domain
+  apps_domain      = "${replace(replace(google_dns_record_set.wildcard-apps-dns.name, "/^\\*\\./", ""), "/\\.$/", "")}"
+  sys_domain       = "${replace(replace(google_dns_record_set.wildcard-sys-dns.name, "/^\\*\\./", ""), "/\\.$/", "")}"
 
   web_elb_names    = ["tcp:${google_compute_target_pool.websocket-lb.name}", "http:${google_compute_backend_service.http-lb.name}"]
   ssh_elb_names    = ["tcp:${google_compute_target_pool.ssh-lb.name}"]
