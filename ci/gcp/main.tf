@@ -1,8 +1,6 @@
 provider "google" {
   project = "fe-nthomson"
   region  = "us-central1"
-
-  version = "~> 3.9.0"
 }
 
 module "paasify" {
