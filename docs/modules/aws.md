@@ -14,35 +14,43 @@ Type: `list(string)`
 
 Description: The suffix of the DNS domain that will be used (ie. aws.paasify.org)
 
-Type: `any`
+Type: `string`
 
 ### env\_name
 
 Description: The name of the environment, used to name resources and DNS domains
 
-Type: `any`
+Type: `string`
 
 ### pas\_version
 
 Description: The major version of PAS to install (ie. 2.8)
 
-Type: `any`
+Type: `string`
 
 ### pivnet\_token
 
 Description: Token for Pivotal Network used to download assets
 
-Type: `any`
+Type: `string`
 
 ### region
 
 Description: The AWS region in which to deploy the foundation (ie. us-west-2)
 
-Type: `any`
+Type: `string`
 
 ## Optional Inputs
 
 The following input variables are optional (have default values):
+
+### auto\_apply
+
+Description: Enable or disable automatically running Apply Changes
+
+Type: `bool`
+
+Default: `true`
 
 ### encrypt\_pas\_buckets
 
@@ -74,7 +82,7 @@ Description: The CIDR of the AWS VPC that will be created for this foundation
 
 Type: `string`
 
-Default: `"10.0.0.0/20"`
+Default: `"10.0.0.0/16"`
 
 ## Outputs
 

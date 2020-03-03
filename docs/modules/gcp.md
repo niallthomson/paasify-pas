@@ -4,59 +4,65 @@
 
 The following input variables are required:
 
+### availability\_zones
+
+Description: List of GCP availability zones in which to deploy the foundation
+
+Type: `list(string)`
+
 ### dns\_suffix
 
-Description: n/a
+Description: The suffix of the DNS domain that will be used (ie. aws.paasify.org)
 
-Type: `any`
+Type: `string`
 
 ### dns\_zone\_name
 
 Description: The name of the Cloud DNS zone that managed the domain specified for dns\_suffix
 
-Type: `any`
+Type: `string`
 
 ### env\_name
 
-Description: n/a
+Description: The name of the environment, used to name resources and DNS domains
 
-Type: `any`
+Type: `string`
 
 ### pas\_version
 
-Description: The major version of PAS to install
+Description: The major version of PAS to install (ie. 2.8)
 
-Type: `any`
+Type: `string`
 
 ### pivnet\_token
 
-Description: n/a
+Description: Token for Pivotal Network used to download assets
 
-Type: `any`
+Type: `string`
 
 ### project
 
-Description: n/a
+Description: The GCP project to use for deploying the foundation
 
 Type: `any`
 
 ### region
 
-Description: n/a
+Description: The GCP region in which to deploy the foundation (ie. us-central1)
 
-Type: `any`
+Type: `string`
 
 ## Optional Inputs
 
 The following input variables are optional (have default values):
 
-### availability\_zones
+### auto\_apply
 
-Description: Optional list of availability zones, will be chosen automatically otherwise
+Description: Enable or disable automatically running Apply Changes
 
-Type: `list(string)`
+Type: `bool`
 
-Default: `[]`
+Default: `true`
 
 ### buckets\_location
 
@@ -66,37 +72,29 @@ Type: `string`
 
 Default: `"US"`
 
-### encrypt\_pas\_buckets
-
-Description: n/a
-
-Type: `string`
-
-Default: `"1"`
-
 ### ops\_manager\_instance\_type
 
-Description: n/a
+Description: GCP instance type used for OpsManager
 
 Type: `string`
 
-Default: `"r4.large"`
+Default: `"n1-standard-2"`
 
 ### tiles
 
-Description: n/a
+Description: List of names of tiles to install with PAS
 
-Type: `list`
+Type: `list(string)`
 
 Default: `[]`
 
 ### vpc\_cidr
 
-Description: n/a
+Description: The CIDR of the AWS VPC that will be created for this foundation
 
 Type: `string`
 
-Default: `"10.0.0.0/20"`
+Default: `"10.0.0.0/16"`
 
 ## Outputs
 
@@ -104,33 +102,33 @@ The following outputs are exported:
 
 ### cf\_api\_endpoint
 
-Description: n/a
+Description: Cloud Foundry API endpoint
 
 ### cf\_apps\_manager\_endpoint
 
-Description: n/a
+Description: Cloud Foundry Apps Manager endpoint
 
 ### ops\_manager\_domain
 
-Description: n/a
+Description: Domain for accessing OpsManager
 
 ### ops\_manager\_password
 
-Description: n/a
+Description: Password for accessing OpsManager
 
 ### ops\_manager\_username
 
-Description: n/a
+Description: Username for accessing OpsManager
 
 ### provisioner\_host
 
-Description: n/a
+Description: Hostname for accessing provisioner instance
 
 ### provisioner\_ssh\_private\_key
 
-Description: n/a
+Description: SSH password for accessing provisioner instance
 
 ### provisioner\_ssh\_username
 
-Description: n/a
+Description: SSH username for accessing provisioner instance
 
