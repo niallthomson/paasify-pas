@@ -11,6 +11,6 @@ cf_admin_password=$(om credentials -p cf -c .uaa.admin_credentials -t json | jq 
 
 echo "OpsManager information"
 echo ""
-echo "Endpoint: https://${cf_api_endpoint}"
+echo "API Endpoint: ${cf_api_endpoint}"
 echo "Username: admin"
 echo "Password: ${cf_admin_password}"
