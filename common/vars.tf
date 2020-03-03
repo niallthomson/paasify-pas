@@ -76,6 +76,11 @@ variable "tiles" {
   default = []
 }
 
+variable "auto_apply" {
+  default = true
+  type    = bool
+}
+
 variable "blocker" {
 
 }

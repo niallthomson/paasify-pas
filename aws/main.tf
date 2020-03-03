@@ -47,6 +47,7 @@ module "common" {
   tiles              = var.tiles
   iaas               = "aws"
   availability_zones = module.pave.availability_zones
+  auto_apply         = var.auto_apply
 
   apps_domain = local.app_domain
   sys_domain  = local.sys_domain

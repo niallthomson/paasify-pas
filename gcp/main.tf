@@ -46,6 +46,7 @@ module "common" {
   tiles              = var.tiles
   iaas               = "google"
   availability_zones = module.pave.availability_zones
+  auto_apply         = var.auto_apply
 
   apps_domain = "${replace(replace(google_dns_record_set.wildcard-apps-dns.name, "/^\\*\\./", ""), "/\\.$/", "")}"
   sys_domain  = "${replace(replace(google_dns_record_set.wildcard-sys-dns.name, "/^\\*\\./", ""), "/\\.$/", "")}"
