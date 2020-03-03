@@ -12,8 +12,8 @@ module "paasify" {
   region             = "us-central1"
   availability_zones = ["us-central1-a", "us-central1-b", "us-central1-c"]
 
-  dns_suffix  = "gcp.paasify.org"
-  hosted_zone = "paasify-zone"
+  dns_suffix    = "gcp.paasify.org"
+  dns_zone_name = "paasify-zone"
 
   pas_version = "2.8"
   tiles       = ["rabbitmq"]
