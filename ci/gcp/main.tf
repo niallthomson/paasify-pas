@@ -8,7 +8,6 @@ module "paasify" {
 
   env_name           = "test123"
   project            = "fe-nthomson"
-
   region             = "us-central1"
   availability_zones = ["us-central1-a", "us-central1-b", "us-central1-c"]
 
