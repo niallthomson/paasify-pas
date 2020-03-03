@@ -45,6 +45,10 @@ When the Terraform run completes there will be a fully working PAS installation,
 
 Quick reference for various areas of the project.
 
+### Comparison with legacy pcf-paasify
+
+If you've come from `pcf-paasify` then see [here](docs/legacy-paasify-diff.md) for how this project differs.
+
 ### Tiles
 
 The following table lists all tiles that can be automatically installed, along with the name that should be put in the `tiles` parameter:
