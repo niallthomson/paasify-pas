@@ -6,7 +6,7 @@ provider "google" {
 }
 
 module "pave" {
-  source = "../../pave/gcp"
+  source = "../../gcp"
 
   environment_name = "test123"
   project          = "fe-nthomson"

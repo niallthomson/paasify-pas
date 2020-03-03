@@ -5,7 +5,7 @@ provider "aws" {
 }
 
 module "pave" {
-  source = "../../pave/aws"
+  source = "../../aws"
 
   environment_name = "test123"
   region           = "us-west-2"
