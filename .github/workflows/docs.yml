@@ -17,7 +17,7 @@ jobs:
           mv terraform-docs-v0.8.2-linux-amd64 $GITHUB_WORKSPACE/path/terraform-docs
           chmod +x $GITHUB_WORKSPACE/path/terraform-docs
           echo "::add-path::$GITHUB_WORKSPACE/path"
-      - name: Get terraform-docs
+      - name: Update Docs
         run: |
           bin/generate-docs.sh
       - name: Create Pull Request
