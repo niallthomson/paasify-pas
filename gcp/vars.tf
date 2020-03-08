@@ -10,7 +10,7 @@ variable "project" {
 variable "vpc_cidr" {
   description = "The CIDR of the AWS VPC that will be created for this foundation"
   type        = string
-  default     = "10.0.0.0/16"
+  default     = "10.0.0.0/20"
 }
 
 variable "region" {
