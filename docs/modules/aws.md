@@ -1,5 +1,5 @@
 # Paasify PAS on AWS
-
+This module installs Pivotal Application Service on AWS.
 ## Required Inputs
 
 The following input variables are required:
