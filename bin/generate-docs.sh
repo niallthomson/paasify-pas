@@ -10,5 +10,8 @@ This module installs Pivotal Application Service on AWS.
 EOF
 terraform-docs --no-providers markdown document aws >> $DIR/../docs/modules/aws.md
 
-echo -e '# Paasify PAS on GCP\n' > $DIR/../docs/modules/gcp.md
+cat << EOF > $DIR/../docs/modules/gcp.md
+# Paasify PAS on GCP
+This module installs Pivotal Application Service on GCP.
+EOF
 terraform-docs --no-providers markdown document gcp >> $DIR/../docs/modules/gcp.md
