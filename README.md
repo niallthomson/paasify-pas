@@ -29,6 +29,26 @@ module "pas" {
 
   tiles = ["mysql"]
 }
+
+output "opsman_url" {
+  value = "https://${module.pas.ops_manager_domain}"
+}
+
+output "opsman_username" {
+  value = module.pas.ops_manager_username
+}
+
+output "opsman_password" {
+  value = module.pas.ops_manager_password
+}
+
+output "cf_api_endpoint" {
+  value = module.pas.cf_api_endpoint
+}
+
+output "cf_apps_manager_endpoint" {
+  value = module.pas.cf_apps_manager_endpoint
+}
 ```
 
 This will:

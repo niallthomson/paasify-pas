@@ -1,5 +1,5 @@
 # Paasify PAS on GCP
-
+This module installs Pivotal Application Service on GCP.
 ## Required Inputs
 
 The following input variables are required:
@@ -94,7 +94,7 @@ Description: The CIDR of the AWS VPC that will be created for this foundation
 
 Type: `string`
 
-Default: `"10.0.0.0/16"`
+Default: `"10.0.0.0/20"`
 
 ## Outputs
 
