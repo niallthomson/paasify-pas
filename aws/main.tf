@@ -45,7 +45,7 @@ module "common" {
 
   pas_version        = var.pas_version
   tiles              = var.tiles
-  iaas               = "aws"
+  iaas               = "light*aws"
   availability_zones = module.pave.availability_zones
   auto_apply         = var.auto_apply
 
