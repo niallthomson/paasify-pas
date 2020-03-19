@@ -13,6 +13,11 @@ output "ops_manager_password" {
   value       = module.pave.ops_manager_password
 }
 
+output "ops_manager_ssh_private_key" {
+  description = "SSH private key for accessing OpsManager"
+  value       = module.pave.ops_manager_ssh_private_key
+}
+
 output "cf_api_endpoint" {
   description = "Cloud Foundry API endpoint"
   value       = module.common.api_endpoint
