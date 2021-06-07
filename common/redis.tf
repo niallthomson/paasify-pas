@@ -1,9 +1,11 @@
 data "template_file" "redis_configuration" {
-  template = "${chomp(file("${path.module}/templates/redis-config.yml"))}"
+  template = chomp(file("${path.module}/templates/redis-config.yml"))
 
   vars = {
     az_configuration = var.az_configuration
     az               = var.singleton_az
+    plan_azs         = join(", ", var.availability_zones)
+    run_smoke_tests  = local.run_smoke_tests
   }
 }
 

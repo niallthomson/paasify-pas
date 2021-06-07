@@ -19,3 +19,8 @@ network-properties:
   other_availability_zones: ${az_configuration}
   singleton_availability_zone:
     name: ${az}
+errand-config:
+  smoke-tests:
+    post-deploy-state: ${run_smoke_tests}
+  on-demand-broker-smoke-tests:
+    post-deploy-state: ${run_smoke_tests}

@@ -65,3 +65,9 @@ variable "auto_apply" {
   default     = true
   type        = bool
 }
+
+variable "skip_smoke_tests" {
+  description = "Skip smoke test errands for all tiles (faster deployment)"
+  default     = false
+  type        = bool
+}

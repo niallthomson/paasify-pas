@@ -3,7 +3,7 @@ variable "iaas" {
 }
 
 variable "availability_zones" {
-  type = list
+  type = list(any)
 }
 
 variable "az_configuration" {
@@ -43,11 +43,11 @@ variable "compute_instances" {
 }
 
 variable "web_elb_names" {
-  type = list
+  type = list(any)
 }
 
 variable "ssh_elb_names" {
-  type = list
+  type = list(any)
 }
 
 variable "pas_ops_file" {
@@ -72,13 +72,24 @@ variable "pas_version" {
 }
 
 variable "tiles" {
-  type    = list
+  type    = list(any)
   default = []
 }
 
 variable "auto_apply" {
   default = true
   type    = bool
+}
+
+variable "skip_smoke_tests" {
+  default = false
+  type    = bool
+}
+
+variable "tile_ops_files" {
+  default = {
+    
+  }
 }
 
 variable "blocker" {

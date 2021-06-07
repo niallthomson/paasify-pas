@@ -47,9 +47,10 @@ module "common" {
   iaas               = "google"
   availability_zones = module.pave.availability_zones
   auto_apply         = var.auto_apply
+  skip_smoke_tests   = var.skip_smoke_tests
 
-  apps_domain = "${replace(replace(google_dns_record_set.wildcard-apps-dns.name, "/^\\*\\./", ""), "/\\.$/", "")}"
-  sys_domain  = "${replace(replace(google_dns_record_set.wildcard-sys-dns.name, "/^\\*\\./", ""), "/\\.$/", "")}"
+  apps_domain = replace(replace(google_dns_record_set.wildcard-apps-dns.name, "/^\\*\\./", ""), "/\\.$/", "")
+  sys_domain  = replace(replace(google_dns_record_set.wildcard-sys-dns.name, "/^\\*\\./", ""), "/\\.$/", "")
 
   web_elb_names = ["tcp:${google_compute_target_pool.websocket-lb.name}", "http:${google_compute_backend_service.http-lb.name}"]
   ssh_elb_names = ["tcp:${google_compute_target_pool.ssh-lb.name}"]

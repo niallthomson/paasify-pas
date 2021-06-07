@@ -1,9 +1,3 @@
-provider "aws" {
-  region = var.region
-
-  version = "~> 2.50.0"
-}
-
 data "aws_caller_identity" "current" {}
 
 resource "null_resource" "infra_blocker" {
@@ -48,6 +42,7 @@ module "common" {
   iaas               = "light*aws"
   availability_zones = module.pave.availability_zones
   auto_apply         = var.auto_apply
+  skip_smoke_tests   = var.skip_smoke_tests
 
   apps_domain = local.app_domain
   sys_domain  = local.sys_domain
@@ -55,7 +50,11 @@ module "common" {
   web_elb_names = formatlist("alb:%s", aws_lb_target_group.web_443.*.name)
   ssh_elb_names = formatlist("alb:%s", aws_lb_target_group.ssh.*.name)
 
-  pas_ops_file = data.template_file.pas_ops_file.rendered
+  pas_ops_file   = data.template_file.pas_ops_file.rendered
+  tile_ops_files = {
+    "metrics" = data.template_file.metrics_ops_file.rendered
+    "metric_store" = data.template_file.metric_store_ops_file.rendered
+  }
 
   az_configuration = module.pave.az_configuration
   singleton_az     = var.availability_zones[0]

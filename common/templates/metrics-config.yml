@@ -1,0 +1,12 @@
+product-name: appMetrics
+network-properties:
+  network:
+    name: pas
+  service_network:
+    name: services
+  other_availability_zones: ${az_configuration}
+  singleton_availability_zone:
+    name: ${az}
+errand-config:
+  smoke-test:
+    post-deploy-state: ${run_smoke_tests}

@@ -9,6 +9,7 @@ locals {
     module.gateway.blocker,
     module.sso.blocker,
     module.credhub.blocker,
+    module.metrics.blocker
   ]
   apply_blocker = sha256(join("", local.apply_blockers))
 }

@@ -43,3 +43,8 @@ resource-config:
     instances: ${compute_instances}
   blobstore:
     instances: 0
+errand-config:
+  smoke_tests:
+    post-deploy-state: ${run_smoke_tests}
+  test-autoscaling:
+    post-deploy-state: ${run_smoke_tests}

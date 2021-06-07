@@ -1,5 +1,5 @@
 data "template_file" "scs_configuration" {
-  template = "${chomp(file("${path.module}/templates/scs-config.yml"))}"
+  template = chomp(file("${path.module}/templates/scs-config.yml"))
 
   vars = {
     az_configuration = var.az_configuration

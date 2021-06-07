@@ -1,5 +1,5 @@
 data "template_file" "credhub_configuration" {
-  template = "${chomp(file("${path.module}/templates/credhub-config.yml"))}"
+  template = chomp(file("${path.module}/templates/credhub-config.yml"))
 
   vars = {
     az_configuration = var.az_configuration

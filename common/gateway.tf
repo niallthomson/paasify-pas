@@ -1,5 +1,5 @@
 data "template_file" "gateway_configuration" {
-  template = "${chomp(file("${path.module}/templates/gateway-config.yml"))}"
+  template = chomp(file("${path.module}/templates/gateway-config.yml"))
 
   vars = {
     az_configuration = var.az_configuration

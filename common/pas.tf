@@ -1,23 +1,25 @@
 locals {
-  tls_full_chain = "${var.tls_cert}${var.tls_ca_cert}"
+  tls_full_chain  = "${var.tls_cert}${var.tls_ca_cert}"
+  run_smoke_tests = var.skip_smoke_tests ? "false" : "default"
 }
 
 data "template_file" "pas_configuration" {
-  template = "${chomp(file("${path.module}/templates/pas-config.yml"))}"
+  template = chomp(file("${path.module}/templates/pas-config.yml"))
 
   vars = {
     az_configuration = var.az_configuration
     az               = var.singleton_az
 
-    tls_cert        = "${jsonencode(local.tls_full_chain)}"
-    tls_private_key = "${jsonencode(var.tls_private_key)}"
-    tls_ca_cert     = "${jsonencode(var.tls_ca_cert)}"
+    tls_cert        = jsonencode(local.tls_full_chain)
+    tls_private_key = jsonencode(var.tls_private_key)
+    tls_ca_cert     = jsonencode(var.tls_ca_cert)
 
-    ssh_elb_names     = "${join(", ", var.ssh_elb_names)}"
-    web_elb_names     = "${join(", ", var.web_elb_names)}"
-    compute_instances = "${var.compute_instances}"
-    apps_domain       = "${var.apps_domain}"
-    sys_domain        = "${var.sys_domain}"
+    ssh_elb_names     = join(", ", var.ssh_elb_names)
+    web_elb_names     = join(", ", var.web_elb_names)
+    compute_instances = var.compute_instances
+    apps_domain       = var.apps_domain
+    sys_domain        = var.sys_domain
+    run_smoke_tests   = local.run_smoke_tests
   }
 }
 

@@ -1,6 +1,6 @@
 # TODO: Enabled S3 encryption for filestore
 data "template_file" "pas_ops_file" {
-  template = "${chomp(file("${path.module}/templates/pas-config-ops.yml"))}"
+  template = chomp(file("${path.module}/templates/pas-config-ops.yml"))
 
   vars = {
     project               = var.project

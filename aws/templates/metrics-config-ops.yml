@@ -1,0 +1,6 @@
+- type: replace  
+  path: /resource-config?/db-and-errand-runner?/instance_type?/id?
+  value: c5.xlarge
+- type: replace  
+  path: /resource-config?/log-store-vms?/instance_type?/id?
+  value: r5.large

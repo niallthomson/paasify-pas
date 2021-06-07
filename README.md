@@ -10,7 +10,7 @@ The goal of this project is to allow you to complete an install of PAS, includin
 |------|-----|-----|-----|
 | [Docs](docs/modules/aws.md) | [Docs](docs/modules/gcp.md) | :x: | :x: |
 
-Note: This project requires Terraform 0.12.X
+Note: This project requires Terraform 0.14.X
 
 Take this example:
 
@@ -22,7 +22,7 @@ module "pas" {
   dns_suffix   = "aws.paasify.org"
   pivnet_token = "<pivnet token here>"
 
-  pas_version  = 2.8
+  pas_version  = 2.10
 
   region             = "us-west-2"
   availability_zones = ["us-west-2a", "us-west-2b", "us-west-2c"]
@@ -52,7 +52,7 @@ output "cf_apps_manager_endpoint" {
 ```
 
 This will:
-- Install PAS 2.8 Small Footprint
+- Install PAS 2.10 Small Footprint
 - Download, stage and configure the MySQL tile
 - Wire up DNS so that its accessible at `paasify-test.aws.paasify.org`
 - Provision valid SSL certificates via Lets Encrypt for every common HTTPS endpoint
@@ -70,7 +70,7 @@ Quick reference for various areas of the project.
 The following are pre-requisites for working with Paasify:
 - Understand how to provide cloud credentials, which is documented [here](https://github.com/niallthomson/paasify-core/blob/master/docs/handling-cloud-credentials.md).
 - DNS setup appropriately for your cloud of choice. See [here](https://github.com/niallthomson/paasify-core/blob/master/docs/dns-setup.md) for details on how your DNS should be setup.
-- Terraform 0.12.X installed
+- Terraform 0.14.X installed
 
 ### Comparison with legacy pcf-paasify
 
@@ -80,13 +80,14 @@ If you've come from `pcf-paasify` then see [here](docs/legacy-paasify-diff.md) f
 
 The following table lists all tiles that can be automatically installed, along with the name that should be put in the `tiles` parameter:
 
-| Tile | Name| 2.6 | 2.7 | 2.8 |
-|------|-----|-----|-----|-----|
-| MySQL | `mysql` | :white_check_mark: | :white_check_mark: | :white_check_mark: |
-| RabbitMQ | `rabbitmq` | :white_check_mark: | :white_check_mark: | :white_check_mark: |
-| Redis | `redis` | :white_check_mark: | :white_check_mark: | :white_check_mark: |
-| Spring Cloud Services | `scs` | :white_check_mark: | :white_check_mark: | :white_check_mark: |
-| Spring Cloud Gateway | `gateway` | :white_check_mark: | :white_check_mark: | :white_check_mark: |
-| Single Sign-On | `sso` | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Tile | Name| 2.6 | 2.7 | 2.8 | 2.9 | 2.10 |
+|------|-----|-----|-----|-----|-----|-----|
+| MySQL | `mysql` | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| RabbitMQ | `rabbitmq` | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Redis | `redis` | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Spring Cloud Services | `scs` | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Spring Cloud Gateway | `gateway` | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Single Sign-On | `sso` | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| AppMetrics | `metrics` | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
 
 The latest stemcell supported by each tile will automatically be uploaded to OpsManager.

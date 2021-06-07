@@ -6,13 +6,15 @@ product-properties:
     value: [${plan_azs}]
   .properties.plan3_selector.single_node.az_multi_select:
     value: [${plan_azs}]
+  .properties.syslog_migration_selector:
+    value: disabled
   .properties.backups_selector:
     value: SCP Backups
   .properties.backups_selector.scp.user:
     value: 'none'
   .properties.backups_selector.scp.key:
     value:
-      secret: ${backup_key}
+      secret: 'none'
   .properties.backups_selector.scp.server:
     value: 'none'
   .properties.backups_selector.scp.destination:
@@ -20,7 +22,7 @@ product-properties:
   .properties.backups_selector.scp.port:
     value: '1234'
   .properties.backups_selector.scp.cron_schedule:
-    value: 0 0 1 1 *
+    value: 0 0 5 31 2 ?
   .properties.global_recipient_email:
     value: none@localhost
   .properties.deprecated_bindings_string:

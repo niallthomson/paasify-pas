@@ -1,10 +1,17 @@
+resource "tls_private_key" "dummy" {
+  algorithm = "RSA"
+  rsa_bits  = "2048"
+}
+
 data "template_file" "mysql_configuration" {
-  template = "${chomp(file("${path.module}/templates/mysql-config.yml"))}"
+  template = chomp(file("${path.module}/templates/mysql-config.yml"))
 
   vars = {
     az_configuration = var.az_configuration
     az               = var.singleton_az
     plan_azs         = join(", ", var.availability_zones)
+    backup_key       = jsonencode(tls_private_key.dummy.private_key_pem)
+    run_smoke_tests  = local.run_smoke_tests
   }
 }
 

@@ -1,16 +1,17 @@
 product-name: p-redis
 product-properties:
-  .properties.syslog_selector:
-    value: 'No'
-  .properties.small_plan_selector.active.az_multi_select:
+  .properties.plan_collection:
     value:
-    - ${az}
-  .properties.medium_plan_selector.active.az_multi_select:
-    value:
-    - ${az}
-  .properties.large_plan_selector.active.az_multi_select:
-    value:
-    - ${az}
+    - az_multi_select: [${plan_azs}]
+      cf_service_access: enable
+      description: This plan provides a test on-demand Redis instance, tailored for
+        caching use-cases with persistence to disk enabled
+      instance_limit: 20
+      lua_scripting: false
+      maxclients: 1000
+      name: on-demand-cache
+      tcp_keepalive: 60
+      timeout: 3600
 network-properties:
   network:
     name: pas
@@ -19,3 +20,8 @@ network-properties:
   other_availability_zones: ${az_configuration}
   singleton_availability_zone:
     name: ${az}
+errand-config:
+  smoke-tests:
+    post-deploy-state: ${run_smoke_tests}
+  on-demand-broker-smoke-tests:
+    post-deploy-state: ${run_smoke_tests}

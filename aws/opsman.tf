@@ -17,7 +17,7 @@ module "services_network_config" {
 }
 
 data "template_file" "director_ops_file" {
-  template = "${chomp(file("${path.module}/templates/director-ops-file.yml"))}"
+  template = chomp(file("${path.module}/templates/director-ops-file.yml"))
 
   vars = {
     pas_subnets           = module.pas_network_config.subnet_config
