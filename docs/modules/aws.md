@@ -68,6 +68,14 @@ Type: `string`
 
 Default: `"r4.large"`
 
+### skip\_smoke\_tests
+
+Description: Skip smoke test errands for all tiles (faster deployment)
+
+Type: `bool`
+
+Default: `false`
+
 ### tiles
 
 Description: List of names of tiles to install with PAS
