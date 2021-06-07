@@ -1,5 +1,5 @@
 variable "environment_name" {}
- 
+
 variable "pas_version" {}
 
 variable "pivnet_token" {}
@@ -21,5 +21,5 @@ module "paasify" {
   tiles       = ["mysql", "rabbitmq", "redis", "scs", "sso", "metrics"]
 
   pivnet_token = var.pivnet_token
-  auto_apply = var.auto_apply
+  auto_apply   = var.auto_apply
 }

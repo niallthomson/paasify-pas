@@ -88,7 +88,7 @@ variable "skip_smoke_tests" {
 
 variable "tile_ops_files" {
   default = {
-    
+
   }
 }
 

@@ -50,9 +50,9 @@ module "common" {
   web_elb_names = formatlist("alb:%s", aws_lb_target_group.web_443.*.name)
   ssh_elb_names = formatlist("alb:%s", aws_lb_target_group.ssh.*.name)
 
-  pas_ops_file   = data.template_file.pas_ops_file.rendered
+  pas_ops_file = data.template_file.pas_ops_file.rendered
   tile_ops_files = {
-    "metrics" = data.template_file.metrics_ops_file.rendered
+    "metrics"      = data.template_file.metrics_ops_file.rendered
     "metric_store" = data.template_file.metric_store_ops_file.rendered
   }
 
