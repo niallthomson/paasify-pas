@@ -13,10 +13,10 @@ jobs:
       - name: Get terraform-docs
         run: |
           wget https://github.com/segmentio/terraform-docs/releases/download/v0.8.2/terraform-docs-v0.8.2-linux-amd64
-          mkdir -p $GITHUB_WORKSPACE/path
-          mv terraform-docs-v0.8.2-linux-amd64 $GITHUB_WORKSPACE/path/terraform-docs
-          chmod +x $GITHUB_WORKSPACE/path/terraform-docs
-          echo "::add-path::$GITHUB_WORKSPACE/path"
+          mkdir -p $HOME/.local/bin
+          mv terraform-docs-v0.8.2-linux-amd64 $HOME/.local/bin/terraform-docs
+          chmod +x $HOME/.local/bin/terraform-docs
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
       - name: Update Docs
         run: |
           bin/generate-docs.sh
